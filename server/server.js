@@ -16,11 +16,23 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 io.on('connection', socket => {
+
     console.log('New user connected!');
+
+    socket.emit('newMessage', {
+        from: 'mike@example.com',
+        text: 'Whats up!!',
+        createdAt: 123
+    });
+
+    socket.on('createMessage', (newMessage) => {
+        console.log('createMessage', newMessage);
+    });
 
     socket.on('disconnect', () => {
         console.log('User disconnected!');
     });
+
 });
 
 const port = process.env.PORT || 3000;
