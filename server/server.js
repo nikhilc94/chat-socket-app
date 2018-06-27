@@ -39,7 +39,7 @@ io.on('connection', socket => {
     socket.on('createLocationMessage', (coords) => {
 
         // Sending to all the sockets.
-        io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude))
+        io.emit('newLocationMessage', generateLocationMessage('User', coords.latitude, coords.longitude))
     
     });
 
