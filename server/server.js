@@ -32,7 +32,7 @@ io.on('connection', socket => {
     
         // Sending to all the sockets.
         io.emit('newMessage', generateMessage(message.from, message.text));
-        callback('This is from the server');
+        callback();
 
     });
 
